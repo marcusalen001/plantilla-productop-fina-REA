@@ -1,0 +1,239 @@
+<style>
+  /* Variables de color y fuentes */
+  :root {
+    --primary: #4f46e5; 
+    --primary-light: #818cf8;
+    --secondary: #ec4899; 
+    --accent: #10b981; 
+    --warning: #f59e0b; 
+    --danger: #ef4444; /* Color rojo para los errores */
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+  }
+
+  .rea-producto-final {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    padding: 25px;
+    border-radius: 16px;
+    color: var(--text-dark);
+    line-height: 1.6;
+    box-sizing: border-box;
+  }
+
+  /* Cabecera principal */
+  .rea-header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .rea-header h2 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 800;
+  }
+
+  .rea-header p {
+    margin: 10px 0 0 0;
+    font-size: 1.1em;
+    opacity: 0.9;
+  }
+
+  /* Tarjetas de contenido */
+  .rea-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border-left: 6px solid var(--primary);
+  }
+
+  .card-instrucciones { border-left-color: var(--primary-light); }
+  .card-recursos { border-left-color: var(--accent); }
+  .card-evaluacion { border-left-color: var(--warning); }
+  .card-diario { border-left-color: var(--secondary); background-color: #fdf2f8; }
+  .card-difusion { border-left-color: var(--primary); background-color: #eef2ff; }
+
+  .rea-card h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4em;
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 10px;
+  }
+
+  /* Estilos para los campos rellenables por el usuario */
+  .rea-input, .rea-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 1em;
+    color: var(--text-dark);
+    background-color: #f1f5f9;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+
+  .rea-input:focus, .rea-textarea:focus {
+    outline: none;
+    border-color: var(--primary-light);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+  }
+
+  .rea-textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  /* Estilo que se aplica cuando un campo está vacío (Error) */
+  .campo-error {
+    border-color: var(--danger) !important;
+    background-color: #fef2f2 !important;
+  }
+
+  /* Preguntas del diario */
+  .diario-pregunta {
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  /* Botón de imprimir/guardar */
+  .btn-guardar {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-guardar:hover {
+    background-color: #3730a3;
+  }
+
+  /* Ocultar botón al imprimir */
+  @media print {
+    .btn-guardar { display: none !important; }
+    .rea-input, .rea-textarea { 
+      border: 1px solid #ccc; 
+      background-color: white; 
+    }
+    .campo-error {
+      border-color: #ccc !important;
+      background-color: white !important;
+    }
+  }
+</style>
+
+<div class="rea-producto-final">
+  
+  <div class="rea-header">
+    <h2>🚀 Ficha del Producto Final</h2>
+    <p>Completa los siguientes campos para definir y organizar tu proyecto.</p>
+  </div>
+
+  <div class="rea-card">
+    <h3>🎯 Descripción del Reto</h3>
+    <p>Define con tus propias palabras cuál es el producto final, reto o actividad que vas a realizar:</p>
+    <textarea class="rea-textarea" placeholder="Escribe aquí la descripción de tu proyecto..."></textarea>
+  </div>
+
+  <div class="rea-card card-instrucciones">
+    <h3>📝 Pasos a seguir</h3>
+    <p>Enumera los pasos clave que vas a seguir para conseguir terminar tu tarea final:</p>
+    <input type="text" class="rea-input" placeholder="Paso 1...">
+    <input type="text" class="rea-input" placeholder="Paso 2...">
+    <input type="text" class="rea-input" placeholder="Paso 3...">
+    <input type="text" class="rea-input" placeholder="Paso 4...">
+  </div>
+
+  <div class="rea-card card-recursos">
+    <h3>🛠️ Recursos Necesarios</h3>
+    <p>Haz una lista de los materiales, herramientas web o recursos que vas a necesitar:</p>
+    <textarea class="rea-textarea" placeholder="Ejemplo: Ordenador, cartulinas, la web de Canva..."></textarea>
+  </div>
+
+  <div class="rea-card card-evaluacion">
+    <h3>⚖️ Mis Criterios de Éxito</h3>
+    <p>¿Qué indicadores o características debe tener tu trabajo para saber que está excelente?</p>
+    <textarea class="rea-textarea" placeholder="Escribe aquí cómo vas a evaluar que tu trabajo está bien hecho..."></textarea>
+  </div>
+
+  <div class="rea-card card-diario">
+    <h3>📓 Diario de Aprendizaje: Revisión Final</h3>
+    <p>Reflexiona sobre tu proceso respondiendo a estas preguntas:</p>
+    
+    <label class="diario-pregunta">¿Qué es lo que más me ha costado hacer en este producto final?</label>
+    <textarea class="rea-textarea" placeholder="Mi mayor dificultad ha sido..."></textarea>
+
+    <label class="diario-pregunta">¿Cómo he solucionado los problemas que han surgido?</label>
+    <textarea class="rea-textarea" placeholder="Para superarlo, lo que hice fue..."></textarea>
+
+    <label class="diario-pregunta">¿De qué parte de mi trabajo me siento más orgulloso/a?</label>
+    <textarea class="rea-textarea" placeholder="Estoy muy contento/a con..."></textarea>
+  </div>
+
+  <div class="rea-card card-difusion">
+    <h3>📢 Difusión del Producto</h3>
+    <p>¿Dónde y cómo vas a compartir tu producto final para que otros lo vean?</p>
+    <textarea class="rea-textarea" placeholder="Explicaré mi trabajo en clase y lo subiré a..."></textarea>
+  </div>
+
+  <button class="btn-guardar" onclick="validarFormulario()">🖨️ Guardar mi trabajo (PDF)</button>
+
+</div>
+
+<script>
+  function validarFormulario() {
+    // 1. Buscamos todos los campos donde el alumno puede escribir
+    const campos = document.querySelectorAll('.rea-input, .rea-textarea');
+    let hayErrores = false;
+
+    // 2. Revisamos cada campo uno por uno
+    campos.forEach(campo => {
+      // Si el campo está vacío (quitando los espacios en blanco)
+      if (campo.value.trim() === '') {
+        campo.classList.add('campo-error'); // Le ponemos estilo rojo
+        hayErrores = true; // Marcamos que hemos encontrado un error
+      } else {
+        campo.classList.remove('campo-error'); // Si está bien, quitamos el rojo
+      }
+    });
+
+    // 3. Tomamos una decisión según lo que hemos encontrado
+    if (hayErrores) {
+      alert('¡Uy! Parece que te has dejado algún apartado sin rellenar. Revisa los campos marcados en rojo antes de guardar.');
+    } else {
+      window.print(); // Si todo está bien, abrimos la ventana de imprimir/guardar PDF
+    }
+  }
+
+  // Extra: Quitar el color rojo en el momento en el que el alumno empiece a escribir
+  document.querySelectorAll('.rea-input, .rea-textarea').forEach(campo => {
+    campo.addEventListener('input', function() {
+      this.classList.remove('campo-error');
+    });
+  });
+</script>
